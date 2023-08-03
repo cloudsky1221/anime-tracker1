@@ -1,10 +1,11 @@
 import PropTypes from "prop-types"
 
-function Delete({setDots, setDeleteButton}) {
+function Delete({setDots, setDeleteButton, deleteItem}) {
 
-  function handleClick() {
+  function handleClick(e) {
     setDots(true)
     setDeleteButton(false)
+    deleteItem(parseInt(e.target.parentNode.firstChild.getAttribute("data-id")))
   }
   return (
     <button aria-roledescription="delete the current item from the list" onClick={handleClick}>
@@ -21,4 +22,5 @@ export default Delete
 Delete.propTypes = {
   setDots:PropTypes.func,
   setDeleteButton:PropTypes.func,
+  deleteItem:PropTypes.func
 }

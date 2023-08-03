@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import "./Ranking.css"
 import Delete from "../../Components/Buttons/Delete/Delete"
@@ -18,7 +18,15 @@ function Ranking() {
   const [dataArray, setDataArray] = useState([{rank:1, title:""}])
 
   const [dots, setDots] = useState(true)
+
+  const [deleteId, setDeleteId] = useState(null)
   const [deleteButton, setDeleteButton] = useState(false)
+
+  const [rankLimit, setRankLimit] = useState(1)
+
+  // useEffect(() => {
+  //   if (rankLimit > 10) 
+  // }, [rankLimit])
 
   function handleText(e) {
     e.preventDefault()
@@ -40,6 +48,11 @@ function Ranking() {
 
   function handleAdd() {
     setDataArray(prev => [...prev, {rank:dataArray.length + 1, title:""}])
+    setRankLimit(prev => prev + 1)
+  }
+
+  function deleteItem(id) {
+    setDataArray(prev => prev.filter(e => e.rank !== id ))
   }
 
   return (
@@ -62,14 +75,14 @@ function Ranking() {
                     {deleteButton && 
                     <div className="edits">
                       <Edit setDots={setDots} setDeleteButton={setDeleteButton}/>
-                      <Delete setDots={setDots} setDeleteButton={setDeleteButton}/>
+                      <Delete setDots={setDots} setDeleteButton={setDeleteButton} deleteItem={deleteItem}/>
                     </div>}
                 </li>
             )
           })}
       </ul>
       <br />
-      <button className="add" aria-roledescription="Add more to rankings" onClick={handleAdd}>Add</button>
+      {rankLimit < 10 && <button className="add" aria-roledescription="Add more to rankings" onClick={handleAdd}>Add</button>}
     </>
   )
 }
