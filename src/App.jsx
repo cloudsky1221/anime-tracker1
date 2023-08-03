@@ -5,7 +5,7 @@ import Ranking from './Pages/Ranking/Ranking'
 function App() {
 
   return (
-    <div id="root">
+    <div id="App">
       <Ranking />
     </div>
   )
