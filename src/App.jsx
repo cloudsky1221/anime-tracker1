@@ -1,11 +1,14 @@
+import { useState } from "react";
 import "./App.css";
-
-import Ranking from "./Pages/Ranking/Ranking";
+import RankPage from "./Pages/RankPage/RankPage";
+import Favorite from "./Pages/Favorite/Favorite";
 
 function App() {
+  const [look, setLook] = useState(false);
   return (
     <div id="App">
-      <Ranking />
+      <Favorite />
+      {look && <RankPage />}
     </div>
   );
 }
