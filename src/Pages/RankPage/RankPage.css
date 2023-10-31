@@ -1,0 +1,112 @@
+:root {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  --main-color: #ff4000;
+  --secondary-color: #fbfefb;
+  --font-size-small: 12px;
+  --font-size-medium: 18px;
+  --font-size-big: 24px;
+  --font-bold: 600;
+  --font-extra-bold: 800;
+}
+
+.rank-page {
+  display: flex;
+  justify-content: space-around;
+}
+
+ul.ranks {
+  margin: 0 auto;
+  padding: 0;
+  width: 400px;
+  height: 350px;
+  list-style: none;
+  display: grid;
+  gap: 20px;
+}
+
+ul.ranks li {
+  /* height: 80px; */
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  align-items: center;
+  background-color: var(--secondary-color);
+  box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.24), 4px 4px 4px #d56262;
+  /* transform: skewX(330deg); */
+  color: var(--main-color);
+  font-size: var(--font-size-medium);
+  position: relative;
+
+  .rank {
+    width: 40px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.24), 4px 4px 4px #d56262;
+    /* transform: skewX(30deg); */
+    color: var(--secondary-color);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-bold);
+    position: absolute;
+    left: -20px;
+    top: 20px;
+  }
+
+  .name {
+    margin-left: 40px;
+    /* transform: skewX(30deg); */
+    font-size: var(--font-size-medium);
+  }
+
+  .buttons {
+    color: var(--main-color);
+  }
+
+  .edits {
+    display: flex;
+  }
+}
+
+/* li:nth-of-type(1) {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+} */
+
+.head {
+  margin-bottom: 20px;
+  width: 400px;
+  height: 40px;
+  background-color: var(--main-color);
+  color: var(--secondary-color);
+  text-align: center;
+
+  & h2 {
+    margin: 0;
+    position: relative;
+  }
+
+  & h2::before,
+  h2::after {
+    content: "";
+    width: 10px;
+    height: 40px;
+    background-color: #fff;
+    position: absolute;
+  }
+  & h2::before {
+    left: 40px;
+  }
+  & h2::after {
+    right: 40px;
+  }
+}
+
+.add {
+  margin-top: 10px;
+  color: var(--main-color);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-extra-bold);
+}
